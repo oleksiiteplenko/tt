@@ -2,7 +2,6 @@ import { eq, sql, isNull } from 'drizzle-orm';
 import { db } from '../db';
 import { sessions } from '../schema';
 
-// Sessions
 export function getSessionsById(id: number) {
   return db.select().from(sessions).where(eq(sessions.id, id));
 }

@@ -13,7 +13,6 @@ import {
   getProjectById,
 } from '../repositories/projectRepository';
 import type { Project, Task } from '../schema';
-// import { formatDate } from '../utils/timeUtils';
 
 async function askCreateProject() {
   const answer = await input({

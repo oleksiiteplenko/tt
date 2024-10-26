@@ -1,4 +1,4 @@
-import { sql, type InferSelectModel, type SQL } from 'drizzle-orm';
+import { sql, type InferSelectModel } from 'drizzle-orm';
 import { integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
 
 export const projects = sqliteTable("projects", {

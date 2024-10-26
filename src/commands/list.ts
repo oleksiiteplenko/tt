@@ -1,9 +1,9 @@
 import { type Command } from 'commander';
 import { bold } from 'yoctocolors';
-import Table from 'cli-table3';
 import { getTasksInfo } from '../repositories/taskRepository';
 import { getAllProjectsInfo } from '../repositories/projectRepository';
 import { formatDuration } from '../utils/timeUtils';
+import { printTable } from '../utils/printTable';
 
 export function createListCommand(program: Command) {
   const list = program
@@ -16,13 +16,11 @@ export function createListCommand(program: Command) {
         const tasks = await getTasksInfo(project);
 
         if (tasks.length) {
-          const table = new Table({ head: ['ID', 'Name', 'Duration'], style: { head: ['blue'] } });
-          tasks.forEach(({ id, name, duration }) => {
-            table.push([id, name, formatDuration(duration)]);
-          });
-
           console.log('📋 There are the tasks for the project:');
-          console.log(table.toString());
+
+          const rows = tasks.map(({ id, name, duration }) => [id, name, formatDuration(duration)]);
+          printTable({ headers: ['ID', 'Name', 'Time spent'], rows });
+
           return;
         }
 
@@ -43,12 +41,8 @@ export function createListCommand(program: Command) {
         return;
       }
 
-      const table = new Table({ head: ['ID', 'Name', 'Duration'], style: { head: ['blue'] } });
-      projectsInfo.forEach(({ id, name, duration }) => {
-        table.push([id, name, formatDuration(duration)]);
-      });
-
+      const rows = projectsInfo.map(({ id, name, duration }) => [id, name, formatDuration(duration)]);
       console.log('📋 Your projects:');
-      console.log(table.toString());
+      printTable({ headers: ['ID', 'Name', 'Time spent'], rows });
     });
 }
