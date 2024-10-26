@@ -26,7 +26,8 @@
   },
   "scripts": {
     "migrate": "bun drizzle-kit push",
-    "backup": "bun run src/scripts/backupDB.ts"
+    "backup": "bun run src/scripts/backupDB.ts",
+    "postinstall": "bun run migrate"
   },
   "peerDependencies": {
     "typescript": "^5.6.2"
