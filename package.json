@@ -1,7 +1,7 @@
 {
   "name": "@oleksiiteplenko/tt",
   "description": "CLI tool for tracking time on projects.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "author": "Oleksii Teplenko <oleksii.teplenko@gmail.com>",
   "repository": {
