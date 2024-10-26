@@ -9,7 +9,7 @@ You should [install Bun](https://bun.sh/docs/installation) first.
 
 #### Install the CLI:
 ```
-bun install --global @oleksiiteplenko/tt
+bun add --global @oleksiiteplenko/tt
 ```
 
 ## Usage
