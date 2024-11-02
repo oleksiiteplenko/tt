@@ -9,7 +9,16 @@ You should [install Bun](https://bun.sh/docs/installation) first.
 
 #### Install the CLI:
 ```
-bun add --global @oleksiiteplenko/tt
+bun add -g @oleksiiteplenko/tt
+```
+#### Create DB:
+Go to package folder:
+```
+cd ~/.bun/install/global/node_modules/@oleksiiteplenko/tt/
+```
+Run migration:
+```
+bunx --bun drizzle-kit push
 ```
 
 ## Usage

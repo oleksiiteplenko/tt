@@ -1,13 +1,7 @@
 {
   "name": "@oleksiiteplenko/tt",
+  "version": "0.5.0",
   "description": "CLI tool for tracking time on projects.",
-  "version": "0.1.1",
-  "license": "MIT",
-  "author": "Oleksii Teplenko <oleksii.teplenko@gmail.com>",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/oleksiiteplenko/tt.git"
-  },
   "keywords": [
     "cli",
     "terminal",
@@ -15,29 +9,29 @@
     "tracker",
     "bun"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oleksiiteplenko/tt.git"
+  },
+  "license": "MIT",
+  "author": "Oleksii Teplenko <oleksii.teplenko@gmail.com>",
+  "type": "module",
+  "module": "src/index.ts",
   "bin": {
     "tt": "./src/index.ts"
   },
-  "module": "src/index.ts",
-  "type": "module",
-  "devDependencies": {
-    "@types/bun": "latest",
-    "drizzle-kit": "^0.26.2"
-  },
   "scripts": {
-    "migrate": "bun drizzle-kit push",
     "backup": "bun run src/scripts/backupDB.ts",
-    "postinstall": "bun run migrate"
-  },
-  "peerDependencies": {
-    "typescript": "^5.6.2"
+    "push": "bun drizzle-kit push"
   },
   "dependencies": {
-    "@inquirer/prompts": "^7.0.0",
+    "@inquirer/prompts": "^7.0.1",
     "@libsql/client": "^0.14.0",
+    "@types/bun": "^1.1.12",
     "cli-table3": "^0.6.5",
     "commander": "^12.1.0",
-    "drizzle-orm": "^0.35.3",
+    "drizzle-kit": "^0.27.1",
+    "drizzle-orm": "^0.36.0",
     "yoctocolors": "^2.1.1"
   }
 }
