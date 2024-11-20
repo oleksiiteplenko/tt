@@ -1,6 +1,6 @@
 import { eq, sql, isNull } from 'drizzle-orm';
 import { db } from '../db';
-import { sessions } from '../schema';
+import { projects, sessions, tasks } from '../schema';
 
 export function getSessionsById(id: number) {
   return db.select().from(sessions).where(eq(sessions.id, id));
@@ -11,7 +11,18 @@ export function getSessionsByTaskId(taskId: number) {
 }
 
 export function getRunningSession() {
-  return db.select().from(sessions).where(isNull(sessions.finishedAt));
+  return db
+    .select({
+      id: sessions.id,
+      projectId: sessions.projectId,
+      createdAt: sessions.createdAt,
+      projectName: projects.name,
+      taskName: tasks.name
+    })
+    .from(sessions)
+    .innerJoin(projects, eq(projects.id, sessions.projectId))
+    .innerJoin(tasks, eq(tasks.id, sessions.taskId))
+    .where(isNull(sessions.finishedAt));
 }
 
 export function startSession(projectId: number, taskId: number) {

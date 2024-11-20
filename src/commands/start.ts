@@ -80,7 +80,7 @@ export function createStartCommand(program: Command) {
       if (runningSession) {
         const [{ name }] = await getProjectById(runningSession.projectId);
         const shouldStopFirst = await confirm({
-          message: `There is the running session in "${name}" project right now. Do you want to finish it?`,
+          message: `⏳ There is the running session in "${name}" project right now. Do you want to finish it?`,
           default: false,
         });
 

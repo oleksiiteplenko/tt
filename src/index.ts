@@ -7,6 +7,7 @@ import { createSessionCommand } from './commands/session';
 import { createStartCommand } from './commands/start';
 import { createListCommand } from './commands/list';
 import { createStopCommand } from './commands/stop';
+import { createStatusCommand } from './commands/status';
 
 program
   .name(name.split('/')[1])
@@ -19,5 +20,6 @@ createListCommand(program);
 createProjectCommand(program);
 createTaskCommand(program);
 createSessionCommand(program);
+createStatusCommand(program);
 
 await program.parseAsync();
