@@ -175,7 +175,4 @@ dist
 .DS_Store
 
 # DB
-db/backups/*
-db/sqlite/*
-!db/backups/.gitkeep
-!db/sqlite/.gitkeep
+tt.db

@@ -1,6 +1,6 @@
 import { Database } from "bun:sqlite";
 import { drizzle } from "drizzle-orm/bun-sqlite";
-import dbPath from './utils/dbPath';
+import { dbPath } from './utils/dbPath';
 
 const sqlite = new Database(dbPath);
 
