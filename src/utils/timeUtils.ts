@@ -11,7 +11,7 @@ export function formatDate(date: Date): string {
 }
 
 const units = [
-    { label: 'd', value: 86400 },  // 1 day = 86400 seconds
+    // { label: 'd', value: 86400 },  // 1 day = 86400 seconds
     { label: 'h', value: 3600 },   // 1 hour = 3600 seconds
     { label: 'm', value: 60 },     // 1 minute = 60 seconds
     { label: 's', value: 1 }       // 1 second = 1 second
